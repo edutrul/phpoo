@@ -1,20 +1,20 @@
 <?php
   /*
-   * Herencia Interface
+   * Herencia Interface.
    */
 Interface Hero {
-  public function salvaElMundo();
-  public function protegeSuFamilia();
+  public function saveTheWorld();
+  public function protectYourFamily();
 }
 Interface HeroChipote extends Hero {
-  public function preparaHeroes();
+  public function prepareHero();
 }
-class BenjiChipote implements HeroChipote{
-  private $poder = 0;
-  private $amor = 0;
+class BenjiChipote implements HeroChipote {
+  private $power;
+  private $love;
   private $powerOfGod;
   
-  //PROBANDO Metodos GETTER AND SETTER
+
   public function setPowerOfGod ($powerOfGod) {
     $this->powerOfGod = $powerOfGod;
   }
@@ -22,57 +22,59 @@ class BenjiChipote implements HeroChipote{
    return $this->powerOfGod;
   }
   /*
-   * Metodos de la clase sin set and get
+   * Metodos de la clase sin set and get.
    */
-  public function amorHero($amor) {
-    $this->amor = $amor;
+  public function useLove($love) {
+    $this->love = $love;
   }
-  public function poderHero($poder) {
-    $this->poder = $poder;
+  public function usePower($power) {
+    $this->power = $power;
   }
   /*
-   * Metodos de herencia interface
+   * Metodos de herencia interface.
    */
-  public function salvaElMundo() {
-    if ($this->poder == 0) {
-      print "Necesitas poder para salvar el mundo<br>";
+  public function saveTheWorld() {
+    if ($this->power == 0) {
+      return "Necesitas poder para salvar el mundo<br>";
     }
     else {
-      print "Salvaste al mundo HERO!!!<br>";
+      return "Salvaste al mundo HERO!!!<br>";
     }
   }
-  public function protegeSuFamilia() {
-    if ($this->amor == 0) {
-      print "Necesitas amor para salvar a tu familia<br>";
+  public function protectYourFamily() {
+    if ($this->love == 0) {
+      return "Necesitas amor para salvar a tu familia<br>";
     }
     else {
-      print "Salvaste a tu familia HERO!!!<br>";
+      return "Salvaste a tu familia HERO!!!<br>";
     }
   }
   /*
-   * En este metodo probamos el getter
+   * En este metodo probamos el getter.
    */
   public function indestructible() {
-    if($this->getPowerOfGod()){
-      print "Eres Invencible.. Dios contigo, quien contra ti?<br>";
+    if ($this->getPowerOfGod()) {
+      return "Eres Invencible.. Dios contigo, quien contra ti?<br>";
     }
     else {
-      print "Estas perdido.. <br>";
+      return "Estas perdido.. <br>";
     }
   }
   /*
-   * Metodo de la clase sin herencia
+   * Metodo de la clase sin herencia.
+   * 
    * @return string
    */
-  public function preparaHeroes() {
-    print "Preparando Heroes.. -- <a href='http://devstec.com/'> DEVSTEC.COM  </a>--<br>";
+  public function prepareHero() {
+    return "Preparando Heroes.. -- <a href='http://devstec.com/'> DEVSTEC.COM  </a>--<br>";
   }
 }
- $r = new BenjiChipote();
- $r->poderHero(100);
- print $r->salvaElMundo();
- $r->amorHero(100);
- print $r->protegeSuFamilia();
- print $r->setPowerOfGod(true);
- print $r->indestructible();
- print $r->preparaHeroes();
+ $hero = new BenjiChipote();
+ $hero->usePower(100);
+ print $hero->saveTheWorld();
+ $hero->useLove(100);
+ print $hero->protectYourFamily();
+ print $hero->setPowerOfGod(true);
+ print $hero->indestructible();
+ print $hero->prepareHero();
+ 
